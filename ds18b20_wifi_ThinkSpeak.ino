@@ -7,7 +7,7 @@
 
 #ifndef STASSID  
 #define STASSID "와이파이 이름"  //접속할 와이파이
-#define STAPSK  "와이파이비번"  //비번
+#define STAPSK  "와이파이 비번"  //비번
 #endif
 
 //API 키와 보낼 메세지
@@ -82,7 +82,8 @@ void loop() {
   Serial.println("closing connection");
   client.stop();
 
-  Serial.println("wait 5 sec...");
-  delay(5000);
+  //1분마다 
+  Serial.println("wait 60 sec...");
+  delay(60000);
   
 }
