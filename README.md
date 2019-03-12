@@ -7,7 +7,8 @@ Sogang Univ. 2019 spring capstone class
 + 아두이노 스케치 설치 시 Jupyter notebook 경로가 날라감. jupyter 의 경로가 Aduino Sketch의 라이브러리를 가르키고 있었음.
 
 # LINK
-+ ThinkSpeack https://thingspeak.com/channels/725653
++ ThingSpeak https://thingspeak.com/channels/725653
++ Aduino Reference https://www.arduino.cc/reference/en/
 
 # Setup Manual
 
