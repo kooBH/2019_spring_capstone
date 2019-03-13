@@ -79,6 +79,10 @@ void loop() {
   //ThinkSpeak 서버에 전송
   client.println(request);
   
+   //read back one line from server
+  String line = client.readStringUntil('\r');
+  Serial.println(line);
+  
   Serial.println("closing connection");
   client.stop();
 
