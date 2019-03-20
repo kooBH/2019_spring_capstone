@@ -51,17 +51,20 @@ app.get('/graph', function (req, res) {
             connection.query(qstr, function(err, rows, cols) {
                     if (err) throw err;
 
-                    var data = "";
-                    var comma = ",";
+                    var data = "data.addRows([";
+                    var comma = "";
                     for (var i=0; i< rows.length; i++) {
                                r = rows[i];
                                //data += comma +" ["+ r.id +",00,38),"+ r.value +"]";
-                               data += comma +" ['"+r.id +"',"+ r.value +"]";
+                               data += comma +" ['"+r.time +"',"+ r.value +"]";
                                comma = ",";
                             }
-                    var header = "['time','temperature']"
+                    //var header = "['number','temperature']"
                     //var header = "data.addColumn('date', 'Date/Time');"
-                    //header += "data.addColumn('number', 'Temp');"
+                    var header = "data.addColumn('string', 'time');"
+                    header += "data.addColumn('number', 'Temp');"
+
+                    data += "]);"
                     html = html.replace("<%HEADER%>", header);
                     html = html.replace("<%DATA%>", data);
 
