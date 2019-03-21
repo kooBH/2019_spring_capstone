@@ -37,10 +37,11 @@
             var options = {
                       chart: {
                                   title: 'Temperature of R705',
-                                  subtitle: 'On my desk'
+                                  subtitle: 'Recent 45 data'
                                 },
                       width: 900,
-                      height: 500
+                      height: 500,
+              vAxis : {viewWindow : {min:23 , max :30 }}
                     };
 
             var chart = new google.charts.Line(document.getElementById('linechart_material'));
