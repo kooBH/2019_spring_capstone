@@ -1,6 +1,9 @@
 # 2019_spring_capstone
 Sogang Univ. 2019 spring capstone class
 
+# Warning   !!
++ 비번 같은거 코드에 박아두지말자  
+
 # LINK
 + ThingSpeak https://thingspeak.com/channels/725653
 + Aduino Reference https://www.arduino.cc/reference/en/
