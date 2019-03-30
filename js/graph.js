@@ -4,11 +4,13 @@ var fs = require('fs');
 
 mysql = require('mysql');
 
+secret = require('./secret.js')
+
 var connection = mysql.createConnection(
   {
     host :'localhost',
     user : 'ubuntu',
-    password : '비번',
+    password : secret.password(),
     database : 'mydb'
   }
 )
