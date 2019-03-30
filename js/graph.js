@@ -48,7 +48,7 @@ app.get('/graph', function (req, res) {
             console.log('read file');
 
  //           var qstr = 'select * from sensors ';
- var qstr = 'select * from (select * from sensors order by time desc limit 45)recent order by time asc';
+ var qstr = 'select * from (select * from sensors order by time desc limit 120)recent order by time asc';
             connection.query(qstr, function(err, rows, cols) {
                     if (err) throw err;
 
