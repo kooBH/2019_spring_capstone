@@ -16,6 +16,6 @@ value decimal(10,4),
 ip char(15),
 time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
-CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'zpfpdlf213';
+CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY '비번';
 GRANT ALL PRIVILEGES ON mydb.* TO 'ubuntu'@'localhost';
 FLUSH PRIVILEGES;

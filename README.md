@@ -1,6 +1,9 @@
 # 2019_spring_capstone
 Sogang Univ. 2019 spring capstone class
 
+# Warning   !!
++ 비번 같은거 코드에 박아두지말자  
+
 # LINK
 + ThingSpeak https://thingspeak.com/channels/725653
 + Aduino Reference https://www.arduino.cc/reference/en/
@@ -30,7 +33,9 @@ nc -l -p <port>
 ```
 telnet <host> <port>
 ```
++ 서버 timezone 변경  
 
+https://ora-sysdba.tistory.com/entry/Cloud-Computing-Amazon-EC2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%9D%98-TIMEZONE-%EB%B3%80%EA%B2%BD  
 
 # Setup Manual
 
