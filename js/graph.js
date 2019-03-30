@@ -66,8 +66,8 @@ app.get('/graph', function (req, res) {
                             }
                     //var header = "['number','temperature']"
                     //var header = "data.addColumn('date', 'Date/Time');"
-                    var header = "data.addColumn('string', 'time');"
-                    header += "data.addColumn('number', 'Temp');"
+                    var header = "data.addColumn('string', '시간');"
+                    header += "data.addColumn('number', '온도');"
 
                     data += "]);"
                     html = html.replace("<%HEADER%>", header);
