@@ -1,16 +1,13 @@
+#include "secret.h" // wifi 정보
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
-#include <DallasTemperature.h>
+#include <DallasTemperature.h>  
 #include <OneWire.h>
 
 #define ONE_WIRE_BUS 13 // D7
 
 #define DELAY 60000
 
-#ifndef STASSID  
-#define STASSID "IIPLAB"  //접속할 와이파이
-#define STAPSK  "1234567890"  //비번
-#endif
 
 //ThingSpeak
 #define TS_msg "GET https://api.thingspeak.com/update?api_key=5EA5J3XPXFMU2N1Q&field1="
