@@ -4,7 +4,9 @@ var fs = require('fs');
 
 mysql = require('mysql');
 
-secret = require('./secret.js')
+moment = require('moment');
+
+secret = require('./secret.js');
 
 var connection = mysql.createConnection(
   {
@@ -59,7 +61,7 @@ app.get('/graph', function (req, res) {
                     for (var i=0; i< rows.length; i++) {
                                r = rows[i];
                                //data += comma +" ["+ r.id +",00,38),"+ r.value +"]";
-                               data += comma +" ['"+r.time +"',"+ r.value +"]";
+                               data += comma +" ['"+moment(r.time).format('h:mm:ss a') +"',"+ r.value +"]";
                                comma = ",";
                             }
                     //var header = "['number','temperature']"
