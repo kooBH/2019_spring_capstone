@@ -19,6 +19,13 @@ Sogang Univ. 2019 spring capstone class
 
 
 # Log
+
++ Moment 설치함
+
+```
+npm install moment --save
+```
+
 + 그냥 패키지매니저로 nodejs랑 npm설치함.
 ```
 sudo apt-get install nodejs npm

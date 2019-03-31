@@ -4,11 +4,15 @@ var fs = require('fs');
 
 mysql = require('mysql');
 
+moment = require('moment');
+
+secret = require('./secret.js');
+
 var connection = mysql.createConnection(
   {
     host :'localhost',
     user : 'ubuntu',
-    password : '비번',
+    password : secret.password(),
     database : 'mydb'
   }
 )
@@ -48,7 +52,7 @@ app.get('/graph', function (req, res) {
             console.log('read file');
 
  //           var qstr = 'select * from sensors ';
- var qstr = 'select * from (select * from sensors order by time desc limit 45)recent order by time asc';
+ var qstr = 'select * from (select * from sensors order by time desc limit 120)recent order by time asc';
             connection.query(qstr, function(err, rows, cols) {
                     if (err) throw err;
 
@@ -57,13 +61,13 @@ app.get('/graph', function (req, res) {
                     for (var i=0; i< rows.length; i++) {
                                r = rows[i];
                                //data += comma +" ["+ r.id +",00,38),"+ r.value +"]";
-                               data += comma +" ['"+r.time +"',"+ r.value +"]";
+                               data += comma +" ['"+moment(r.time).format('h:mm:ss a') +"',"+ r.value +"]";
                                comma = ",";
                             }
                     //var header = "['number','temperature']"
                     //var header = "data.addColumn('date', 'Date/Time');"
-                    var header = "data.addColumn('string', 'time');"
-                    header += "data.addColumn('number', 'Temp');"
+                    var header = "data.addColumn('string', '시간');"
+                    header += "data.addColumn('number', '온도');"
 
                     data += "]);"
                     html = html.replace("<%HEADER%>", header);
