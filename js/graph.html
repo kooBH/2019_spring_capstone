@@ -12,15 +12,15 @@ function drawLineColors() {
 
   var data = new google.visualization.DataTable();
   <%HEADER%>
-    <%DATA%>
+  <%DATA%>
 
     var options = {
 
       titleTextStyle: {
         fontName: 'Helvetica', // i.e. 'Times New Roman'
-        fontSize: 32, // 12, 18 whatever you want (don't specify px)
+        fontSize: 18, // 12, 18 whatever you want (don't specify px)
       },
-      title: '구본혁\n 20130523',
+      title: '20130523 구본혁',
       width: 900,
       height: 500,
       vAxis : {viewWindow : {min: 22 , max :31 }},
@@ -66,6 +66,21 @@ chart.draw(dataView, options);
   <body>
     <!-- [START html_body] -->
     <div id="linechart_material"></div>
+
+
+
+
     <!-- [END html_body] -->
+    <hr>
+    <ul>
+      <li>센서 시작          시간 : <%FIRST%> </li>
+      <li>센서 종료(최근))   시간 : <%LAST%> </li>
+    </ul>
+    <hr>
+
+    <ul>
+      <li>node.js 코드         :<a href ="<%NODEJS%>" ><%NODEJS%></a></li>
+      <li>arduino.ino 코드 : <a href ="<%ARDUINO%>"><%ARDUINO%></a></li>
+    </ul>
   </body>
 </html>

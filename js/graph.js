@@ -6,14 +6,15 @@ mysql = require('mysql');
 
 moment = require('moment');
 
+//계정 정보
 secret = require('./secret.js');
 
 var connection = mysql.createConnection(
   {
-    host :'localhost',
-    user : 'ubuntu',
+    host : secret.host(),
+    user : secret.user(),
     password : secret.password(),
-    database : 'mydb'
+    database : secret.database()
   }
 )
 
@@ -73,11 +74,31 @@ app.get('/graph', function (req, res) {
                     html = html.replace("<%HEADER%>", header);
                     html = html.replace("<%DATA%>", data);
 
-                    res.writeHeader(200, {"Content-Type": "text/html"});
-                    res.write(html);
-                    res.end();
-                  });
-          });
+        var qstr2 = 'select * from sensors order by time desc limit 1';
+        connection.query(qstr2,function(err,rows,cols){
+          if (err) throw err;
+            r = rows[0];
+            html = html.replace("<%LAST%>", moment(r.time).format('MM월 DD일 - h:mm:ss a'));
+
+
+          var qstr3 = 'select * from sensors order by time asc limit 1';
+          connection.query(qstr3,function(err,rows,cols){
+              if (err) throw err;
+              r = rows[0];
+              html = html.replace("<%FIRST%>", moment(r.time).format('MM월 DD일 - h:mm:ss a'));
+            //2개 바꾸니까 2번 돌림
+              html = html.replace("<%NODEJS%>","https://github.com/kooBH/2019_spring_capstone/blob/master/js/graph.js");
+              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino");
+              html = html.replace("<%NODEJS%>","https://github.com/kooBH/2019_spring_capstone/blob/master/js/graph.js");
+              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino");
+
+              res.writeHeader(200, {"Content-Type": "text/html"});
+              res.write(html);
+              res.end();
+          });//query 3
+        });//query 2
+      });//query 1
+   });//html
 })
 
 
