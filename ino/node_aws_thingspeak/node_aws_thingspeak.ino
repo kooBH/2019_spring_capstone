@@ -1,4 +1,10 @@
-#include "secret.h" // wifi 정보
+/*
+wife 정보
+ThingSpeak정보
+AWS 정보
+*/
+#include "secret.h" 
+
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <DallasTemperature.h>  
@@ -7,17 +13,6 @@
 #define ONE_WIRE_BUS 13 // D7
 
 #define DELAY 60000
-
-
-//ThingSpeak
-#define TS_msg "GET https://api.thingspeak.com/update?api_key=5EA5J3XPXFMU2N1Q&field1="
-const char* TS_host = "api.thingspeak.com"; //ThinkSpeack 접근
-const uint16_t TS_port = 80;  //포트
-
-//AWS
-#define AWS_msg "/log?device=705&unit=0&type=T&value="
-const char* AWS_host = "18.225.10.228";
-const uint16_t AWS_port = 8080;
 
 const char* ssid     = STASSID;
 const char* password = STAPSK;
