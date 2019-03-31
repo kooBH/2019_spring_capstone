@@ -88,9 +88,9 @@ app.get('/graph', function (req, res) {
               html = html.replace("<%FIRST%>", moment(r.time).format('MM월 DD일 - h:mm:ss a'));
             //2개 바꾸니까 2번 돌림
               html = html.replace("<%NODEJS%>","https://github.com/kooBH/2019_spring_capstone/blob/master/js/graph.js");
-              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino");
               html = html.replace("<%NODEJS%>","https://github.com/kooBH/2019_spring_capstone/blob/master/js/graph.js");
-              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino");
+              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino/node_aws_thingspeak/node_aws_thingspeak.ino");
+              html = html.replace("<%ARDUINO%>","https://github.com/kooBH/2019_spring_capstone/tree/master/ino/node_aws_thingspeak/node_aws_thingspeak.ino");
 
               res.writeHeader(200, {"Content-Type": "text/html"});
               res.write(html);
