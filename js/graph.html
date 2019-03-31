@@ -23,7 +23,7 @@ function drawLineColors() {
       title: '20130523 구본혁',
       width: 900,
       height: 500,
-      vAxis : {viewWindow : {min: 22 , max :31 }},
+      vAxis : {viewWindow : {min: 10 , max :31 }},
       courveType : 'function',
       lineWidth : 7
     };
@@ -63,12 +63,19 @@ chart.draw(dataView, options);
 //[END script_body]
     </script>
   </head>
+  <!--  CSS 스타일--!>
+  <style>
+div.outline_black{
+  outline-style:solid;
+  outline-color: #000000;
+}
+</style>
   <body>
     <!-- [START html_body] -->
-    <div id="linechart_material"></div>
-
-
-
+    <div class = "outline_black">
+    <div
+      id="linechart_material"></div>
+    </div>
 
     <!-- [END html_body] -->
     <hr>
@@ -79,7 +86,7 @@ chart.draw(dataView, options);
     <hr>
 
     <ul>
-      <li>node.js 코드         :<a href ="<%NODEJS%>" ><%NODEJS%></a></li>
+      <li>nodejs 코드         :<a href ="<%NODEJS%>" ><%NODEJS%></a></li>
       <li>arduino.ino 코드 : <a href ="<%ARDUINO%>"><%ARDUINO%></a></li>
     </ul>
   </body>
