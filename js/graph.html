@@ -15,14 +15,17 @@ function drawLineColors() {
     <%DATA%>
 
     var options = {
-      chart: {
-        title: '구본혁 20130523',
-        subtitle: '냉장고에서 돌릴 예정'
+
+      titleTextStyle: {
+        fontName: 'Helvetica', // i.e. 'Times New Roman'
+        fontSize: 32, // 12, 18 whatever you want (don't specify px)
       },
+      title: '구본혁\n 20130523',
       width: 900,
       height: 500,
-      vAxis : {viewWindow : {min: 10 , max :31 }},
-      courveType : 'function'
+      vAxis : {viewWindow : {min: 22 , max :31 }},
+      courveType : 'function',
+      lineWidth : 7
     };
 
   var dataView = new google.visualization.DataView(data);
@@ -32,23 +35,30 @@ function drawLineColors() {
     // add function for line color
     {
       calc: function(data, row) {
-        var colorDown = '#0000FF';
-        var colorUp = '#FF0000';
-
-        if ((row === 0) && (data.getValue(row, 1) < data.getValue(row + 1, 1))) {
-          return colorDown;
-        } else if ((row > 0) && (data.getValue(row - 1, 1) < data.getValue(row, 1))) {
-          return colorDown;
+        var colorDown = '#2c93e8';
+        var colorUp = '#ff4f4f';
+        var colorSame = '#42af61';
+        if (row === 0) {
+          if(data.getValue(row, 1) < data.getValue(row + 1, 1)) 
+              return colorUp;
+  else if(data.getValue(row, 1) > data.getValue(row + 1, 1)) 
+            return colorDown;
+          return colorSame;
         }
-        return colorUp;
-      },
-      type: 'string',
-      role: 'style'
-    }
+        else if ( data.getValue(row - 1, 1) < data.getValue(row, 1)) 
+              return colorUp;
+        else if ( data.getValue(row - 1, 1) > data.getValue(row, 1)) 
+              return colorDown;
+         return colorSame;
+      
+    },
+  type: 'string',
+  role: 'style'
+}
   ]);
-  var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
+var chart = new google.visualization.LineChart(document.getElementById('linechart_material'));
 
-  chart.draw(dataView, options);
+chart.draw(dataView, options);
 }
 //[END script_body]
     </script>
